@@ -1,0 +1,44 @@
+//By Yousif Abdul Wahid :)
+
+import java.util.Scanner;
+
+public class GetFrequencyForAListOfStrings {
+
+   public static int getFrequencyOfWord(String[] wordsList, int listSize, String currWord) {
+	   int success = 0;
+	   for (int i = 0 ; i < listSize; ++i) {
+		   if(currWord.contentEquals(wordsList[i]))
+			   success = success + 1;
+	   }
+	   return success;
+   }
+
+
+
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      String currWord;
+      int listSize;
+      
+      System.out.println("Hey there! how many words do you want to count for frequency");
+      listSize = scnr.nextInt();
+      String[] wordsList = new String[listSize];
+      int[] frequencyList = new int[listSize];
+      System.out.println("Go ahead and enter " + listSize + " words separated by a space");
+      
+      for (int i = 0; i < listSize; ++i){
+         wordsList [i] = scnr.next();
+      }
+      
+      System.out.println("Thanks, now you will get the words in the order given with the frequency right next to it.");
+      
+      for(int i= 0; i < listSize; ++i) {
+    	  currWord = wordsList[i];
+    	  frequencyList[i] = getFrequencyOfWord(wordsList, listSize, currWord);
+      }
+      
+      for(int i = 0; i <listSize; i++) {
+    	  System.out.println(wordsList[i] + " " + frequencyList[i]);
+      }
+   }
+}
